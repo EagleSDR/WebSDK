@@ -3,6 +3,7 @@ import IEagleObjectConstructor from "../web/IEagleObjectConstructor";
 import IEaglePluginDemodulator from "./client/IEaglePluginDemodulator";
 import IEaglePluginSource from "./client/IEaglePluginSource";
 import IEaglePluginAsset from "./IEaglePluginAsset";
+import IEaglePluginBootConfig from "./IEaglePluginBootConfig";
 import IEaglePluginObjectConstructor from "./IEaglePluginObjectConstructor";
 
 export default interface IEaglePluginContext {
@@ -24,5 +25,8 @@ export default interface IEaglePluginContext {
 
     //Registers a demodulator implemented by the plugin.
     RegisterDemodulator(demod: IEaglePluginDemodulator): void;
+
+    //Sets up the plugin from the config
+    Configure(config: IEaglePluginBootConfig): void;
 
 }
