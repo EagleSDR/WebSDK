@@ -3,11 +3,12 @@ import IEagleObjectConstructor from "../web/IEagleObjectConstructor";
 import IEaglePluginDemodulator from "./client/IEaglePluginDemodulator";
 import IEaglePluginSource from "./client/IEaglePluginSource";
 import IEaglePluginAsset from "./IEaglePluginAsset";
+import IEaglePluginObjectConstructor from "./IEaglePluginObjectConstructor";
 
 export default interface IEaglePluginContext {
 
     //Registers a class for construction.
-    RegisterClass(classname: string, constructor: IEagleObjectConstructor): void;
+    RegisterClass(classname: string, constructor: IEaglePluginObjectConstructor): void;
 
     //Returns a promise you can await that'll be called back when the app is finished loading.
     WaitInit(): Promise<void>;
