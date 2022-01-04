@@ -11,6 +11,10 @@ export default abstract class EagleObject extends EagleLoggable {
 
     protected net: IEagleObjectContext;
 
+    GetGuid() {
+        return this.net.GetGuid();
+    }
+
     protected RegisterClass(classname: string, constructor: IEagleObjectConstructor) {
         return this.net.GetManager().RegisterClass(classname, constructor);
     }
