@@ -1,3 +1,39 @@
+import IEagleDraggable from "./ui/IEagleDraggable";
+
+class EagleDraggableWrapper {
+
+    constructor(element: HTMLElement, callbacks: IEagleDraggable) {
+        this.element = element;
+        this.callbacks = callbacks;
+        element.addEventListener("mousedown", (evt: MouseEvent) => {
+            this.down = true;
+            this.callbacks.DragBegin(evt);
+            evt.preventDefault();
+            evt.stopPropagation();
+        });
+        window.addEventListener("mousemove", (evt: MouseEvent) => {
+            if (this.down) {
+                this.callbacks.DragMove(evt);
+                evt.preventDefault();
+                evt.stopPropagation();
+            }
+        });
+        window.addEventListener("mouseup", (evt: MouseEvent) => {
+            if (this.down) {
+                this.down = false;
+                this.callbacks.DragEnd(evt);
+                evt.preventDefault();
+                evt.stopPropagation();
+            }
+        });
+    }
+
+    private element: HTMLElement;
+    private callbacks: IEagleDraggable;
+    private down: boolean = false;
+
+}
+
 export default class EagleUtil {
 
     static HttpGetRequestBinary(url: string): Promise<ArrayBuffer> {
@@ -45,6 +81,24 @@ export default class EagleUtil {
             request.open("POST", url);
             request.send(JSON.stringify(data));
         });
+    }
+
+    static CreateElement(type: string, classname: string, parent?: HTMLElement): HTMLElement {
+        var e = document.createElement(type);
+        if (classname != null)
+            e.classList.add(classname);
+        if (parent != null)
+            parent.appendChild(e);
+        return e;
+    }
+
+    static RemoveElementChildren(element: HTMLElement): void {
+        while (element.firstElementChild != null)
+            element.firstElementChild.remove();
+    }
+
+    static MakeElementDraggable(element: HTMLElement, actions: IEagleDraggable): void {
+        new EagleDraggableWrapper(element, actions);
     }
 
 }
