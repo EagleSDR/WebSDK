@@ -1,6 +1,7 @@
 import IEaglePluginDemodulator from "./client/IEaglePluginDemodulator";
 import IEaglePluginSource from "./client/IEaglePluginSource";
 import IEaglePluginObjectConstructor from "./IEaglePluginObjectConstructor";
+import IEaglePluginWindowRegistration from "./IEaglePluginWindowRegistration";
 
 export default interface IEaglePluginBootConfig {
 
@@ -10,5 +11,6 @@ export default interface IEaglePluginBootConfig {
     web_classes: { [classname: string]: IEaglePluginObjectConstructor }
     demodulators: IEaglePluginDemodulator[];
     sources: IEaglePluginSource[];
+    windows: { [classname: string]: IEaglePluginWindowRegistration };
 
 }
