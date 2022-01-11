@@ -5,6 +5,8 @@ import IEaglePluginSource from "./client/IEaglePluginSource";
 import IEaglePluginAsset from "./IEaglePluginAsset";
 import IEaglePluginBootConfig from "./IEaglePluginBootConfig";
 import IEaglePluginObjectConstructor from "./IEaglePluginObjectConstructor";
+import IEaglePluginWindowInstance from "./IEaglePluginWindowInstance";
+import IEaglePluginWindowRegistration from "./IEaglePluginWindowRegistration";
 
 export default interface IEaglePluginContext {
 
@@ -16,5 +18,11 @@ export default interface IEaglePluginContext {
 
     //Sets up the plugin from the config
     Configure(config: IEaglePluginBootConfig): void;
+
+    //Adds the window instance to the picker, allowing the user to drag the window in.
+    RegisterWindowInstance(window: IEaglePluginWindowRegistration, instance: IEaglePluginWindowInstance): void;
+
+    //Removes the window instance from the sidebar.
+    UnregisterWindowInstance(instance: IEaglePluginWindowInstance): void;
 
 }
