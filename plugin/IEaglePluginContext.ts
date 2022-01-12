@@ -1,4 +1,5 @@
 import EagleObject from "../web/EagleObject";
+import IEagleManagedSocket from "../web/IEagleManagedSocket";
 import IEagleObjectConstructor from "../web/IEagleObjectConstructor";
 import IEaglePluginDemodulator from "./client/IEaglePluginDemodulator";
 import IEaglePluginSource from "./client/IEaglePluginSource";
@@ -24,5 +25,8 @@ export default interface IEaglePluginContext {
 
     //Removes the window instance from the sidebar.
     UnregisterWindowInstance(instance: IEaglePluginWindowInstance): void;
+
+    //Creates a connection to a socket defined in the plugin. Allows sending arbitrary binary data between the client and server.
+    CreateSocket(name: string): IEagleManagedSocket;
 
 }
