@@ -11,4 +11,6 @@ export default interface IEagleManagedSocket {
     OnTextMessage: EagleEventDispatcher<string>;
     OnBinaryMessage: EagleEventDispatcher<ArrayBuffer>;
 
+    Close(): void;
+
 }
