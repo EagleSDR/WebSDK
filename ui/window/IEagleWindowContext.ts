@@ -1,3 +1,4 @@
+import { EagleButtonType } from "./EagleButtonType";
 import IEagleWindowButton from "./IEagleWindowButton";
 
 export default interface IEagleWindowContext {
@@ -24,6 +25,9 @@ export default interface IEagleWindowContext {
     CloseWindow(): void;
 
     //Creates a button in the window header.
-    CreateButton(classname: string): IEagleWindowButton;
+    CreateButton(icon: EagleButtonType): IEagleWindowButton;
+
+    //Creates a custom button in the window header.
+    CreateButtonCustom(classname: string): IEagleWindowButton;
 
 }
