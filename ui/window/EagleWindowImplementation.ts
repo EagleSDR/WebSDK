@@ -1,8 +1,10 @@
+import EagleLoggable from "../../EagleLoggable";
 import IEagleWindowContext from "./IEagleWindowContext";
 
-export default abstract class EagleWindowImplementation {
+export default abstract class EagleWindowImplementation extends EagleLoggable {
 
     constructor(window: IEagleWindowContext) {
+        super("Window");
         this.window = window;
     }
 
@@ -10,6 +12,7 @@ export default abstract class EagleWindowImplementation {
 
     SetTitle(title: string): void {
         this.window.SetTitle(title);
+        this.ChangeLoggingKey(title);
     }
 
     GetSettings(): any {

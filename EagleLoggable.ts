@@ -10,6 +10,11 @@ export default class EagleLoggable {
         return "[" + this.loggingKey + "] " + msg;
     }
 
+    protected ChangeLoggingKey(name: string): void {
+        this.Log("Changing logging key to \"" + name + "\".");
+        this.loggingKey = name;
+    }
+
     protected Log(msg: string) {
         console.log(this.CreateLoggingString(msg));
     }
