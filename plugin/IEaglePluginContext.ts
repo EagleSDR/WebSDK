@@ -1,3 +1,4 @@
+import IEagleContext from "../core/IEagleContext";
 import EagleObject from "../web/EagleObject";
 import IEagleManagedSocket from "../web/IEagleManagedSocket";
 import IEagleObjectConstructor from "../web/IEagleObjectConstructor";
@@ -28,5 +29,8 @@ export default interface IEaglePluginContext {
 
     //Creates a connection to a socket defined in the plugin. Allows sending arbitrary binary data between the client and server.
     CreateSocket(name: string): IEagleManagedSocket;
+
+    //Get context to the rest of the app
+    GetContext(): IEagleContext;
 
 }
