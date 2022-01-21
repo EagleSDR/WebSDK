@@ -1,4 +1,5 @@
 import IEagleContext from "../core/IEagleContext";
+import IEagleKeyValuePersistentStorage from "../misc/IEagleKeyValuePersistentStorage";
 import EagleObject from "../web/EagleObject";
 import IEagleManagedSocket from "../web/IEagleManagedSocket";
 import IEagleObjectConstructor from "../web/IEagleObjectConstructor";
@@ -32,5 +33,8 @@ export default interface IEaglePluginContext {
 
     //Get context to the rest of the app
     GetContext(): IEagleContext;
+
+    //Gets storage that can be read/written to.
+    GetPersistentStorage(): IEagleKeyValuePersistentStorage;
 
 }
