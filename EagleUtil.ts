@@ -79,6 +79,7 @@ export default class EagleUtil {
                 reject();
             })
             request.open("POST", url);
+            request.setRequestHeader("content-type", "application/json");
             request.send(JSON.stringify(data));
         });
     }
