@@ -30,4 +30,16 @@ export default interface IEagleWindowContext {
     //Creates a custom button in the window header.
     CreateButtonCustom(classname: string): IEagleWindowButton;
 
+    //Sets the mimimum width, in px
+    SetMinWidth(width: number): void;
+
+    //Sets the maximum width, in px
+    SetMaxWidth(width: number): void;
+
+    //Sets the mimimum height, in px
+    SetMinHeight(height: number): void;
+
+    //Sets the maximum height, in px
+    SetMaxHeight(height: number): void;
+
 }

@@ -10,9 +10,25 @@ export default abstract class EagleWindowImplementation extends EagleLoggable {
 
     private window: IEagleWindowContext;
 
-    SetTitle(title: string): void {
+    protected SetTitle(title: string): void {
         this.window.SetTitle(title);
         this.ChangeLoggingKey(title);
+    }
+
+    protected SetMinWidth(width: number): void {
+        this.window.SetMinWidth(width);
+    }
+
+    protected SetMaxWidth(width: number): void {
+        this.window.SetMaxWidth(width);
+    }
+
+    protected SetMinHeight(width: number): void {
+        this.window.SetMinHeight(width);
+    }
+
+    protected SetMaxHeight(width: number): void {
+        this.window.SetMaxHeight(width);
     }
 
     GetSettings(): any {
