@@ -1,8 +1,12 @@
 import EagleObject from "../../web/EagleObject";
+import EagleEventDispatcher from "../../EagleEventDispatcher";
 import IEaglePortProperty from "../../web/ports/IEaglePortProperty";
 import IEagleRadioSession from "./IEagleRadioSession";
 
 export default interface IEagleRadio {
+
+    // An event raised when the active session is switched
+    OnActiveSessionChanged: EagleEventDispatcher<IEagleRadioSession>;
 
     // Gets the enabled port.
     Enabled(): IEaglePortProperty<boolean>;

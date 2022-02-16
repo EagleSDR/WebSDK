@@ -4,6 +4,7 @@ import IEagleProperty from "../port/IEagleProperty";
 
 export default interface IEagleRadioSession {
 
+    GetGuid(): string;
     FrequencyOffset(): IEagleProperty<number>;
     FrequencyAbsolute(): IEagleProperty<number>;
     VfoLocked(): IEagleProperty<boolean>;
