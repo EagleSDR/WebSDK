@@ -9,9 +9,12 @@ export default interface IEagleObjectContext {
     GetGuid(): string;
     GetManager(): IEagleObjectManager;
     GetContext(): IEagleContext;
+    GetExtra(key: string): any;
 
     GetPortApi(name: string): IEaglePortApi;
     GetPortEvent(name: string): IEaglePortEvent;
     GetPortProperty<T>(name: string): IEaglePortProperty<T>;
+
+    Destroy(): void;
 
 }

@@ -13,8 +13,11 @@ import IEaglePluginWindowRegistration from "./IEaglePluginWindowRegistration";
 
 export default interface IEaglePluginContext {
 
-    //Gets the server-side module with the classname. This will only work for modules declared in the plugin manifest, using the same classname
-    GetModule(classname: string): EagleObject;
+    //Gets the internal ID of the plugin.
+    GetId(): string;
+
+    //Gets the server-side static object with the key.
+    GetStaticObject(key: string): EagleObject;
 
     //Gets a plugin asset
     GetAsset(name: string): IEaglePluginAsset;
