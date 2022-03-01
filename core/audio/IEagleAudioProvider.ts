@@ -7,7 +7,7 @@ export default interface IEagleAudioProvider {
     GetDisplayName(): string;
 
     // The priority of this being picked by default. High quality sources should be higher in value. Range is ~0-10.
-    GetPriority(): boolean;
+    GetPriority(): number;
 
     // Checks if this item is likely compatible with this browser.
     GetIsCompatible(): boolean;
